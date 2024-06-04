@@ -13,18 +13,16 @@ return {
       },
     })
 
-    local tmux = require("tmux")
-
     require("tmux.keymaps").register("n", {
-      ["<C-n>"] = tmux.move_left,
-      ["<C-e>"] = tmux.move_bottom,
-      ["<C-u>"] = tmux.move_top(),
-      ["<C-j>"] = tmux.move_right(),
+      ["<C-n>"] = "<cmd>lua require('tmux').move_left()<cr>",
+      ["<C-e>"] = "<cmd>lua require('tmux').move_bottom()<cr>",
+      ["<C-u>"] = "<cmd>lua require('tmux').move_top()<cr>",
+      ["<C-j>"] = "<cmd>lua require('tmux').move_right()<cr>",
 
-      ["<C-l>"] = tmux.resize_left(),
-      ["<C-y>"] = tmux.resize_right(),
-      ["<A-l>"] = tmux.resize_top(),
-      ["<A-y>"] = tmux.resize_bottom(),
+      ["<C-l>"] = "<cmd>lua require('tmux').resize_left()<cr>",
+      ["<C-y>"] = "<cmd>lua require('tmux').resize_right()<cr>",
+      ["<A-l>"] = "<cmd>lua require('tmux').resize_top()<cr>",
+      ["<A-y>"] = "<cmd>lua require('tmux').resize_bottom()<cr>",
     })
   end
 }
