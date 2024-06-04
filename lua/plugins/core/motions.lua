@@ -17,5 +17,21 @@ return {
       { 'ge', '<Plug>(leap-from-window)', mode = { 'n', 'x', 'o' } },
     },
   },
-	"jeetsukumaran/vim-indentwise",
+  'jeetsukumaran/vim-indentwise',
+  {
+    'ThePrimeagen/harpoon',
+    keys = {
+      -- Harpoon navigation
+      { '<leader>m', "<cmd>lua require('harpoon.mark').add_file()<CR>" },
+      { '<leader>h', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>" },
+      { '<leader>1', "<cmd>lua require('harpoon.ui').nav_file(1)<CR>" },
+      { '<leader>2', "<cmd>lua require('harpoon.ui').nav_file(2)<CR>" },
+      { '<leader>3', "<cmd>lua require('harpoon.ui').nav_file(3)<CR>" },
+      { '<leader>4', "<cmd>lua require('harpoon.ui').nav_file(4)<CR>" },
+      { '<leader>7', "<cmd>lua require('harpoon.term').gotoTerminal(1)<CR>" },
+      { '<leader>8', "<cmd>lua require('harpoon.term').gotoTerminal(2)<CR>" },
+      { '<leader>9', "<cmd>lua require('harpoon.term').gotoTerminal(3)<CR>" },
+      { '<leader>0', "<cmd>lua require('harpoon.term').gotoTerminal(4)<CR>" },
+    },
+  },
 }
