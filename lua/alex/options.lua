@@ -40,11 +40,13 @@ vim.opt.signcolumn = 'yes'
 vim.opt.updatetime = 250
 
 -- Decrease mapped sequence wait time
--- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
+-- Delay for which key
+vim.opt.timeoutlen = 1000
 
 -- Configure how new splits should be opened
+-- force all vertical splits to go to the right of current window
 vim.opt.splitright = true
+-- force all horizontal splits to go below current window
 vim.opt.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
@@ -60,10 +62,21 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
 
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-
--- Set highlight on search, but clear on pressing <Esc> in normal mode
+-- Set highlight on search
 vim.opt.hlsearch = true
+
+-- Disable backup and swap file
+vim.opt.backup = false
+vim.opt.swapfile = false
+--
+-- convert tabs to spaces
+vim.opt.expandtab = true
+--
+-- Display lines as one long line
+vim.opt.wrap = false
+
+-- set relative numbered lines
+vim.opt.relativenumber = true

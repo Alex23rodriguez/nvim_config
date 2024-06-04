@@ -4,29 +4,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- [[ Basic Keymaps ]]
+--  See `:help vim.keymap.set()`
 local set = vim.keymap.set
-
-set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- Diagnostic keymaps
-set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
--- TIP: Disable arrow keys in normal mode
--- set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- [[ Colemak movement ]]
 -- hjkl
@@ -86,6 +66,13 @@ set('n', 'sW', '<cmd>%bd|e#<CR>', { desc = 'Close all but current buffer' })
 -- [[ Quickfix ]]
 set('n', ']q', '<cmd>cnext<CR>', { desc = 'Next Quickfix item' })
 set('n', '[q', '<cmd>cprev<CR>', { desc = 'Previous Quickfix item' })
+--
+-- Diagnostic keymaps
+set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
+set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
+set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
 -- Function to toggle the quickfix window
 set('n', 'qq', function()
   if vim.api.nvim_get_option_value('filetype', {}) == 'qf' then
@@ -103,3 +90,20 @@ set('v', '>', '>gv', { desc = 'Stay in visual mode when indenting' })
 
 -- when pasting over something, don't override register
 set('v', 'p', '"_dP', { desc = 'Visual paste does not override register' })
+--
+--  clear highlight on pressing <Esc> in normal mode
+set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
+-- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
+-- is not what someone will guess without a bit more experience.
+--
+-- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
+-- or just use <C-\><C-n> to exit terminal mode
+set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- TIP: Disable arrow keys in normal mode
+-- set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+-- set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+-- set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+-- set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
