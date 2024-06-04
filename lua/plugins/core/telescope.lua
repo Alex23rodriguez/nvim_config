@@ -63,7 +63,9 @@ return {
     pcall(require('telescope').load_extension, 'ui-select')
     local success, _ = pcall(require('telescope').load_extension, 'yank_history')
     if success then
-      vim.keymap.set('n', '<leader>ty', '<cmd>Telescope yank_history', { desc = '[T]elescope [Y]anks' })
+      vim.keymap.set('n', '<leader>ty', function()
+        vim.cmd('Telescope yank_history')
+      end, { desc = '[T]elescope [Y]anks' })
     end
 
     -- See `:help telescope.builtin`
@@ -105,17 +107,5 @@ return {
     vim.keymap.set('n', '<leader>tn', function()
       builtin.find_files({ cwd = vim.fn.stdpath('config') })
     end, { desc = '[T]elescope [N]eovim files' })
-
-    -- LSP
-    vim.keymap.set('n', '<leader>lr', builtin.buffers, { desc = '[L]SP [R]eferences' })
-    vim.keymap.set('n', '<leader>lr', builtin.lsp_references, { desc = '[L]SP [R]eferences' })
-    vim.keymap.set('n', '<leader>ld', builtin.lsp_definitions, { desc = '[L]SP [D]efinitons' })
-    vim.keymap.set('n', '<leader>lI', builtin.lsp_incoming_calls, { desc = '[L]SP [I]ncoming calls' })
-    vim.keymap.set('n', '<leader>lO', builtin.lsp_outgoing_calls, { desc = '[L]SP [O]utgoing calls' })
-    vim.keymap.set('n', '<leader>li', builtin.lsp_implementations, { desc = '[L]SP [I]mplementations' })
-    vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, { desc = '[L]SP document [S]ymbols' })
-    vim.keymap.set('n', '<leader>lt', builtin.lsp_type_definitions, { desc = '[L]SP [T]ype definitions' })
-    vim.keymap.set('n', '<leader>lw', builtin.lsp_workspace_symbols, { desc = '[L]SP [W]orkspace symbols' })
-    vim.keymap.set('n', '<leader>lW', builtin.lsp_dynamic_workspace_symbols, { desc = '[L]SP dynamic [W]orkspace symbols' })
   end,
 }
