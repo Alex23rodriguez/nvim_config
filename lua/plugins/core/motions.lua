@@ -17,4 +17,5 @@ return {
       { 'ge', '<Plug>(leap-from-window)', mode = { 'n', 'x', 'o' } },
     },
   },
+	"jeetsukumaran/vim-indentwise",
 }
