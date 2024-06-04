@@ -1,10 +1,5 @@
 return {
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
-  -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
   {
-
     'unblevable/quick-scope',
     lazy = false,
     init = function()
@@ -12,5 +7,14 @@ return {
       vim.api.nvim_set_hl(0, 'QuickScopePrimary', { fg = '#e37933', underline = true, ctermfg = 155 })
       vim.api.nvim_set_hl(0, 'QuickScopeSecondary', { fg = '#e8274b', underline = true, ctermfg = 81 })
     end,
+  },
+
+  {
+    'ggandor/leap.nvim',
+    keys = {
+      { 'U', '<Plug>(leap-backward)', mode = { 'n', 'x', 'o' } },
+      { 'E', '<Plug>(leap-forward)', mode = { 'n', 'x', 'o' } },
+      { 'ge', '<Plug>(leap-from-window)', mode = { 'n', 'x', 'o' } },
+    },
   },
 }
