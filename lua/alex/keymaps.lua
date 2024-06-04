@@ -70,6 +70,7 @@ set('n', '[q', '<cmd>cprev<CR>', { desc = 'Previous Quickfix item' })
 -- Diagnostic keymaps
 set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+set('n', 'gl', '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
 set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Set buffer diagnostics to location list' })
 
