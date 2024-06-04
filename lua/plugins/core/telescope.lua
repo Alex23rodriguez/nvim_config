@@ -76,7 +76,10 @@ return {
     -- Telescope
     vim.keymap.set('n', '<leader>th', builtin.help_tags, { desc = '[T]elescope [H]elp' })
     vim.keymap.set('n', '<leader>tk', builtin.keymaps, { desc = '[T]elescope [K]eymaps' })
+
     vim.keymap.set('n', '<leader>tf', builtin.find_files, { desc = '[T]elescope [F]iles' })
+    vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = '[T]elescope [F]iles' })
+
     vim.keymap.set('n', '<leader>tF', function()
       builtin.find_files({ hidden = true })
     end, { desc = '[T]elescope [F]iles (hidden=true)' })
@@ -84,12 +87,20 @@ return {
       builtin.builtin(themes.get_dropdown({ previewer = false }))
     end, { desc = '[T]elescope [S]elect Telescope' })
     vim.keymap.set('n', '<leader>tw', builtin.grep_string, { desc = '[T]elescope current [W]ord' })
+
     vim.keymap.set('n', '<leader>tg', builtin.live_grep, { desc = '[T]elescope by [G]rep' })
+    vim.keymap.set('n', '<leader>g', builtin.live_grep, { desc = '[T]elescope by [G]rep' })
+
     vim.keymap.set('n', '<leader>td', builtin.diagnostics, { desc = '[T]elescope [D]iagnostics' })
     vim.keymap.set('n', '<leader>tr', builtin.resume, { desc = '[T]elescope [R]esume' })
+
     vim.keymap.set('n', '<leader>tp', function()
       builtin.oldfiles({ only_cwd = true, no_ignore = true })
     end, { desc = '[T]elescope Recent Files' })
+    vim.keymap.set('n', '<leader>p', function()
+      builtin.oldfiles({ only_cwd = true, no_ignore = true })
+    end, { desc = '[T]elescope Recent Files' })
+
     vim.keymap.set('n', '<leader>t.', builtin.oldfiles, { desc = '[T]elescope Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader>tb', builtin.buffers, { desc = '[T]elescope [B]uffers' })
     vim.keymap.set('n', "<leader>t'", builtin.marks, { desc = '[T]elescope [M]arks' })
