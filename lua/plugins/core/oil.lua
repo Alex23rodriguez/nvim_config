@@ -6,6 +6,7 @@ return {
   },
   opts = {
     keymaps = {
+      ['<Esc>'] = 'actions.close',
       ['<CR>'] = 'actions.select',
       ['S'] = 'actions.change_sort',
       ['N'] = 'actions.close',
