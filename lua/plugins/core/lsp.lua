@@ -33,7 +33,7 @@ return { -- LSP Configuration & Plugins
           vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
 
-        builtin = require('telescope.builtin')
+        local builtin = require('telescope.builtin')
 
         -- [[ LSP keymaps ]]
         -- Telescope
@@ -97,11 +97,17 @@ return { -- LSP Configuration & Plugins
         -- code, if the language server you are using supports them
         --
         -- This may be unwanted, since they displace some of your code
-        if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-          map('<leader>lh', function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-          end, 'toggle [L]SP Inlay [H]ints')
-        end
+        map('<leader>lh', function()
+          if client and vim.lsp.inlay_hint then
+            if client.server_capabilities.inlayHintProvider then
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            else
+              print('server has not inlay hint server_capabilities')
+            end
+          else
+            print('no LSP client')
+          end
+        end, 'toggle [L]SP Inlay [H]ints')
       end,
     })
 
