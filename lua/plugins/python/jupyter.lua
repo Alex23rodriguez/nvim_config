@@ -1,5 +1,13 @@
 -- return {}
 return {
+  {
+    'goerz/jupytext.vim',
+    build = function()
+      if vim.fn.executable('jupytext') ~= 1 then
+        print("jupytext is not installed so won't be able to use jupytext.vim")
+      end
+    end,
+  },
   -- {
   --   'jupyter-vim/jupyter-vim',
   --   ft = 'python',
