@@ -72,12 +72,12 @@ return {
   end,
 
   keys = {
-    { '<C-x>t', '<cmd>lua _TERMINAL_TOGGLE()<cr>' },
-    { '<C-x>g', '<cmd>lua _LAZYGIT_TOGGLE()<cr>' },
-    { '<C-x>n', '<cmd>lua _NODE_TOGGLE()<cr>' },
-    { '<C-x>s', '<cmd>lua _NCDU_TOGGLE()<cr>' },
-    { '<C-x>h', '<cmd>lua _HTOP_TOGGLE()<cr>' },
-    { '<C-x>p', '<cmd>lua _PYTHON_TOGGLE()<cr>' },
+    { '<leader>xt', '<cmd>lua _TERMINAL_TOGGLE()<cr>' },
+    { '<leader>xg', '<cmd>lua _LAZYGIT_TOGGLE()<cr>' },
+    { '<leader>xn', '<cmd>lua _NODE_TOGGLE()<cr>' },
+    { '<leader>xs', '<cmd>lua _NCDU_TOGGLE()<cr>' },
+    { '<leader>xh', '<cmd>lua _HTOP_TOGGLE()<cr>' },
+    { '<leader>xp', '<cmd>lua _PYTHON_TOGGLE()<cr>' },
     { '<C-q>', '<cmd>lua _TOGGLE_CURRENT()<cr>', desc = 'Toggle terminal' },
     { '<C-q>', '<cmd>lua _TOGGLE_CURRENT()<cr>', mode = 't' },
   },
