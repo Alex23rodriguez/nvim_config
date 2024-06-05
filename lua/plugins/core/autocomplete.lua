@@ -59,7 +59,8 @@ return { -- Autocompletion
           luasnip.lsp_expand(args.body)
         end,
       },
-      completion = { completeopt = 'menu,menuone,noinsert' },
+      -- autocomplete on enter
+      -- completion = { completeopt = 'menu,menuone,noinsert' },
 
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
@@ -134,6 +135,8 @@ return { -- Autocompletion
       },
 
       formatting = {
+        fields = { 'abbr', 'kind', 'menu' },
+        expandable_indicator = true,
         format = function(entry, vim_item)
           if kind_icons[vim_item.kind] ~= nil then
             vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
