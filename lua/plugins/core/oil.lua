@@ -2,9 +2,24 @@ return {
   'stevearc/oil.nvim',
   lazy = false,
   keys = {
-    { 'N', '<cmd>Oil<CR>', desc = 'Open parent directory' },
+    {
+      'N',
+      function()
+        local oil = require('oil')
+        oil.open()
+        -- Wait until oil has opened, for a maximum of 1 second.
+        vim.wait(1000, function()
+          return oil.get_cursor_entry() ~= nil
+        end)
+        if oil.get_cursor_entry() then
+          oil.open_preview()
+        end
+      end,
+      desc = 'Open parent directory',
+    },
   },
   opts = {
+    skip_confirm_for_simple_edits = true,
     keymaps = {
       ['<Esc>'] = 'actions.close',
       ['<CR>'] = 'actions.select',
