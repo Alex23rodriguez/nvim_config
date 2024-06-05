@@ -80,3 +80,6 @@ vim.opt.wrap = false
 
 -- set relative numbered lines
 vim.opt.relativenumber = true
+
+-- num of options to show on a menu
+vim.opt.pumheight = 10
