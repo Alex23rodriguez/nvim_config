@@ -1,18 +1,21 @@
-return {}
--- return {
---   "jupyter-vim/jupyter-vim",
---   ft="python",
---   config = function()
---     -- vim.cmd("let g:jupyter_mapkeys = 0")
---
---     vim.keymap.set("n", "<leader>jj", "<cmd>JupyterConnect<CR>")
---     vim.keymap.set("n", "<leader>jd", "<cmd>JupyterDisconnect<CR>")
---     vim.keymap.set("n", "<leader>jf", "<cmd>JupyterRunFile<CR>")
---
---     vim.keymap.set("n", "<leader>c", "<cmd>JupyterSendCell<cr>")
---     -- workaround send range in visual mode
---     -- exits and enters visual mode to set '< and '>
---     -- note that it also sets a mark in 'j, so may override whatever may be there
---     vim.keymap.set("v", "<leader>c", "mjvv<cmd>'<,'>JupyterSendRange<cr>v'j")
---   end
--- }
+-- return {}
+return {
+  -- {
+  --   'jupyter-vim/jupyter-vim',
+  --   ft = 'python',
+  --   config = function()
+  --     -- vim.cmd("let g:jupyter_mapkeys = 0")
+  --
+  --     vim.keymap.set('n', '<leader>jj', '<cmd>JupyterConnect<CR>')
+  --     vim.keymap.set('n', '<leader>jd', '<cmd>JupyterDisconnect<CR>')
+  --     vim.keymap.set('n', '<leader>jf', '<cmd>JupyterRunFile<CR>')
+  --
+  --     vim.keymap.set('n', '<leader>c', '<cmd>JupyterSendCell<cr>')
+  --     -- workaround send range in visual mode
+  --     -- exits and enters visual mode to set '< and '>
+  --     -- note that it also sets a mark in 'j, so may override whatever may be there
+  --     vim.keymap.set('v', '<leader>c', "mjvv<cmd>'<,'>JupyterSendRange<cr>v'j")
+  --   end,
+  -- },
+  -- { 'ahmedkhalf/jupyter-nvim', lazy = false },
+}
