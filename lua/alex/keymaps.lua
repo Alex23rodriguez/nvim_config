@@ -33,11 +33,11 @@ set('n', 'S', 'z', { desc = 'Vim z prefix' })
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-set('n', '<C-e>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-set('n', '<C-u>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-set('n', '<C-n>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-set('n', '<C-i>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-set('n', '<C-j>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- set('n', '<A-e>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- set('n', '<A-u>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- set('n', '<A-n>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- set('n', '<A-i>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- set('n', '<A-j>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 
 set('n', 's', '<c-w>', { desc = 'window management' })
 set('n', 'sx', '<c-w>x', { desc = 'Swap window with nth window' })
