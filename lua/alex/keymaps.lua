@@ -75,15 +75,15 @@ set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rr
 set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Set buffer diagnostics to location list' })
 
 -- Function to toggle the quickfix window
-set('n', 'qq', function()
-  if vim.api.nvim_get_option_value('filetype', {}) == 'qf' then
-    -- Close the quickfix window
-    vim.cmd('cclose')
-  else
-    -- Open the quickfix window
-    vim.cmd('copen')
-  end
-end, { desc = 'Toggle Quickfix' })
+-- set('n', 'qq', function()
+--   if vim.api.nvim_get_option_value('filetype', {}) == 'qf' then
+--     -- Close the quickfix window
+--     vim.cmd('cclose')
+--   else
+--     -- Open the quickfix window
+--     vim.cmd('copen')
+--   end
+-- end, { desc = 'Toggle Quickfix' })
 
 -- [[ Misc ]]
 set('v', '<', '<gv', { desc = 'Stay in visual mode when indenting' })
