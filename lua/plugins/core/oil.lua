@@ -1,3 +1,4 @@
+_OIL_MARKS = {}
 return {
   'stevearc/oil.nvim',
   lazy = false,
@@ -8,12 +9,12 @@ return {
         local oil = require('oil')
         oil.open()
         -- Wait until oil has opened, for a maximum of 1 second.
-        vim.wait(1000, function()
-          return oil.get_cursor_entry() ~= nil
-        end)
-        if oil.get_cursor_entry() then
-          oil.open_preview()
-        end
+        -- vim.wait(1000, function()
+        --   return oil.get_cursor_entry() ~= nil
+        -- end)
+        -- if oil.get_cursor_entry() then
+        --   oil.open_preview()
+        -- end
       end,
       desc = 'Open parent directory',
     },
@@ -21,7 +22,7 @@ return {
   opts = {
     skip_confirm_for_simple_edits = true,
     keymaps = {
-      ['<Esc>'] = 'actions.close',
+      -- ['<Esc>'] = 'actions.close',
       ['<CR>'] = 'actions.select',
       ['S'] = 'actions.change_sort',
       ['N'] = 'actions.close',
@@ -40,6 +41,7 @@ return {
           'icon',
         })
       end,
+      -- sorting and view options
       ['gn'] = function()
         require('oil').set_columns({ 'icon' })
         require('oil').set_sort({ { 'type', 'asc' } })
@@ -68,6 +70,25 @@ return {
           'icon',
         })
         require('oil').set_sort({ { 'type', 'asc' }, { 'atime', 'desc' } })
+      end,
+      -- marks
+      ['m'] = function()
+        local mark = vim.fn.input('save as: ')
+        if string.len(mark) ~= nil then
+          _OIL_MARKS[mark] = require('oil').get_current_dir()
+          print("saved '" .. mark .. "'")
+        end
+      end,
+      ['M'] = function()
+        vim.notify(vim.inspect(_OIL_MARKS))
+      end,
+      ["'"] = function()
+        local mark = vim.fn.input('load: ')
+        if _OIL_MARKS[mark] ~= nil then
+          require('oil').open(_OIL_MARKS[mark])
+        else
+          print("'" .. mark .. "' not found")
+        end
       end,
     },
     view_options = { show_hidden = true },
