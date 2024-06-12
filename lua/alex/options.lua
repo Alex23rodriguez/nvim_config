@@ -83,3 +83,6 @@ vim.opt.relativenumber = true
 
 -- num of options to show on a menu
 vim.opt.pumheight = 10
+
+-- command line height
+-- vim.opt.cmdheight = 2
