@@ -52,6 +52,42 @@ return {
           inactive = { c = { fg = colors.fg, bg = colors.bg } },
         },
       },
+      tabline = {
+        lualine_c = {
+          {
+            'buffers',
+            mode = 2,
+            symbols = { alternate_file = '' },
+            buffers_color = {
+              active = '@variable',
+              inactive = '@comment',
+            },
+            padding = 3,
+          },
+        },
+      },
+      winbar = {
+        lualine_c = {
+          {
+            'filename',
+            cond = conditions.buffer_not_empty,
+            color = { fg = colors.magenta, gui = 'bold' },
+            padding = { left = 3 },
+            path = 1,
+          },
+        },
+      },
+      inactive_winbar = {
+        lualine_c = {
+          {
+            'filename',
+            cond = conditions.buffer_not_empty,
+            color = { fg = colors.blue },
+            padding = { left = 3 },
+            path = 1,
+          },
+        },
+      },
       sections = {
         -- these are to remove the defaults
         lualine_a = {},
@@ -69,15 +105,7 @@ return {
         -- lualine_b = {},
         -- lualine_y = {},
         -- lualine_z = {},
-        lualine_c = {
-          {
-            'filename',
-            cond = conditions.buffer_not_empty,
-            color = { fg = colors.blue },
-            padding = { left = 3 },
-            path = 1,
-          },
-        },
+        lualine_c = {},
         lualine_x = {},
       },
     }
@@ -134,14 +162,6 @@ return {
       -- filesize component
       'filesize',
       cond = conditions.buffer_not_empty,
-    })
-
-    ins_left({
-      'filename',
-      cond = conditions.buffer_not_empty,
-      color = { fg = colors.magenta, gui = 'bold' },
-      path = 1,
-      shorting_target = 0,
     })
 
     ins_left({ 'location' })
