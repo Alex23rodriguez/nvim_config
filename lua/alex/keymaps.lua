@@ -26,7 +26,9 @@ set('n', 'Z', '<C-r>', { desc = 'redo with z' })
 
 set('n', 'S', 'z', { desc = 'Vim z prefix' })
 
---
+-- move half a screen up and down
+set('n', 'L', '<c-u>', { desc = 'Move up half a screen' })
+set('n', 'Y', '<c-d>', { desc = 'Move down half a screen' })
 
 -- [[ Window management ]]
 -- Keybinds to make split navigation easier.
