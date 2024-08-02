@@ -7,6 +7,9 @@ return {
         print("jupytext is not installed so won't be able to use jupytext.vim")
       end
     end,
+    config = function()
+      vim.api.nvim_set_var('jupytext_fmt', 'py:percent')
+    end,
   },
   -- {
   --   'jupyter-vim/jupyter-vim',
