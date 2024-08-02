@@ -9,14 +9,14 @@ return {
     end,
   },
 
-  {
-    'ggandor/leap.nvim',
-    keys = {
-      { 'U', '<Plug>(leap-backward)', mode = { 'n', 'x', 'o' } },
-      { 'E', '<Plug>(leap-forward)', mode = { 'n', 'x', 'o' } },
-      { 'ge', '<Plug>(leap-from-window)', mode = { 'n', 'x', 'o' } },
-    },
-  },
+  -- {
+  --   'ggandor/leap.nvim',
+  --   keys = {
+  --     { 'U', '<Plug>(leap-backward)', mode = { 'n', 'x', 'o' } },
+  --     { 'E', '<Plug>(leap-forward)', mode = { 'n', 'x', 'o' } },
+  --     { 'ge', '<Plug>(leap-from-window)', mode = { 'n', 'x', 'o' } },
+  --   },
+  -- },
   'jeetsukumaran/vim-indentwise',
   {
     'ThePrimeagen/harpoon',
