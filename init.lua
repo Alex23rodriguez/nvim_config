@@ -1,5 +1,6 @@
 if vim.g.vscode then
   require('myvscode.keymaps')
+  require('myvscode.vs_keymaps')
   require('myvscode.commands')
   require('myvscode.lazy')
 else
