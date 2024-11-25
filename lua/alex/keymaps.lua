@@ -43,11 +43,11 @@ set('n', 'Y', '<c-i>', { desc = 'Jump to next edit position' })
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
--- set('n', '<A-e>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
--- set('n', '<A-u>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
--- set('n', '<A-n>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
--- set('n', '<A-i>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
--- set('n', '<A-j>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+set('n', '<C-e>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+set('n', '<C-u>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+set('n', '<C-n>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+set('n', '<C-i>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+set('n', '<C-j>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 
 set('n', 's', '<c-w>', { desc = 'window management' })
 set('n', 'sx', '<c-w>x', { desc = 'Swap window with nth window' })
@@ -61,10 +61,10 @@ set('n', 'sq', '<c-w>q', { desc = ':q' }) -- redundant
 set('n', 'sz', '<c-w>z', { desc = 'Close preview window' }) -- redundant
 
 -- Alternative (for when ctrl is not going through the app)
--- set('n', 'sE', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
--- set('n', 'sU', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
--- set('n', 'sN', '<C-w><C-h>', { desc = 'Move focus to the left window' })
--- set('n', 'sI', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+set('n', 'sE', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+set('n', 'sU', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+set('n', 'sN', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+set('n', 'sI', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 
 -- [[ Buffer management ]]
 set('n', 'ss', '<cmd>b#<CR>', { desc = 'Switch to previous buffer' })
@@ -111,6 +111,7 @@ set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
+set('t', '<C-Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
