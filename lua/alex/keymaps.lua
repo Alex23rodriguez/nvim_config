@@ -26,9 +26,17 @@ set('n', 'Z', '<C-r>', { desc = 'redo with z' })
 
 set('n', 'S', 'z', { desc = 'Vim z prefix' })
 
+-- go up end down jump list
+set('n', 'L', '<c-o>', { desc = 'Jump to previous edit position' })
+set('n', 'Y', '<c-i>', { desc = 'Jump to next edit position' })
+--
+-- go up end down change jump list
+-- set('n', 'L', 'g;', { desc = 'Jump to previous edit position' })
+-- set('n', 'Y', 'g,', { desc = 'Jump to next edit position' })
+--
 -- move half a screen up and down
-set('n', 'L', '<c-u>', { desc = 'Move up half a screen' })
-set('n', 'Y', '<c-d>', { desc = 'Move down half a screen' })
+-- set('n', 'L', '<c-u>', { desc = 'Move up half a screen' })
+-- set('n', 'Y', '<c-d>', { desc = 'Move down half a screen' })
 
 -- [[ Window management ]]
 -- Keybinds to make split navigation easier.
