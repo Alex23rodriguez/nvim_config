@@ -31,10 +31,12 @@ return {
   },
   {
     'kkoomen/vim-doge',
-    config = function()
+    init = function()
       vim.api.nvim_set_var('doge_doc_standard_python', 'google')
-      vim.api.nvim_set_var('doge_enable_mappings', false)
-      vim.keymap.set('n', '<Leader>D', '<Plug>(doge-generate)')
+      vim.api.nvim_set_var('doge_enable_mappings', 0)
     end,
+    keys = {
+      { '<Leader>D', '<Plug>(doge-generate)' },
+    },
   },
 }
