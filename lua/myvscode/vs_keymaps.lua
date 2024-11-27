@@ -1,6 +1,14 @@
 local vscode = require('vscode')
 
 local set = vim.keymap.set
+-- yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    --Trigger the vscode clipboard copy action after any yank unfortunatelly, only copies the first line
+    require('vscode').action('editor.action.clipboardCopyAction')
+  end,
+})
+-- lsp
 
 set('n', '<leader>ld', function()
   vscode.action('editor.action.revealDefinition')
