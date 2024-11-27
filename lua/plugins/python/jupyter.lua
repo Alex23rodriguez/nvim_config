@@ -59,7 +59,7 @@ return {
     },
     event = 'VeryLazy',
     opts = {
-      activate_hydra_keys = '<leader>n',
+      activate_hydra_keys = '<leader>n', -- hydra head
       show_hydra_hint = false,
       hydra_keys = {
         comment = '/',

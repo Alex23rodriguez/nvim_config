@@ -9,7 +9,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- lsp
 set('n', '<c-a>', function()
   vscode.action('editor.action.selectAll')
   vscode.action('editor.action.clipboardCopyAction')
@@ -21,6 +20,7 @@ set('v', '<leader>y', function()
   print('copied selection')
 end)
 
+-- lsp
 set('n', '<leader>ld', function()
   vscode.action('editor.action.revealDefinition')
 end, { desc = '[L]SP [D]efinitons' })
