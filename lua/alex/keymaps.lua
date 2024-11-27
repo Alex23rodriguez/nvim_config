@@ -122,16 +122,17 @@ set('t', '<C-Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- copy contents to tmp file
--- set('v', '<leader>y', function()
+-- set('n', '<leader>y', function()
 --   local start_line = vim.fn.line("'<")
 --   local end_line = vim.fn.line("'>")
 --   local selected_text = vim.fn.join(vim.fn.getline(start_line, end_line), '\n')
 --
---   -- Prompt for the file path
---   local file = io.open('~/tmp.txt', 'w')
+--   local file = io.open('/tmp/nvim.txt', 'w')
 --   if file then
 --     file:write(selected_text)
 --     file:close()
+--     print('copied selection to /tmp/nvim.txt')
+--   else
+--     print('could not open file')
 --   end
---   print('copied selection to ~/tmp.txt')
 -- end)
