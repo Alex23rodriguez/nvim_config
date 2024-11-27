@@ -75,9 +75,29 @@ return {
         swap_down = 'E',
       },
     },
-    -- config = function()
-    -- local nn = require('notebook-navigator')
-    -- nn.setup({ activate_hydra_keys = '<leader>h' })
-    -- end,
+  },
+  {
+    'echasnovski/mini.hipatterns',
+    event = 'VeryLazy',
+    dependencies = { 'GCBallesteros/NotebookNavigator.nvim' },
+    opts = function()
+      local nn = require('notebook-navigator')
+
+      local opts = { highlighters = { cells = nn.minihipatterns_spec } }
+      return opts
+    end,
+  },
+  {
+    'echasnovski/mini.ai',
+    event = 'VeryLazy',
+    dependencies = { 'GCBallesteros/NotebookNavigator.nvim' },
+    opts = function()
+      local nn = require('notebook-navigator')
+
+      -- defines a cell object `h`, can then dah, vih, yih ...
+      local opts = { custom_textobjects = { h = nn.miniai_spec } }
+
+      return opts
+    end,
   },
 }
