@@ -8,7 +8,18 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     require('vscode').action('editor.action.clipboardCopyAction')
   end,
 })
+
 -- lsp
+set('n', '<c-a>', function()
+  vscode.action('editor.action.selectAll')
+  vscode.action('editor.action.clipboardCopyAction')
+  print('copied all')
+end)
+
+set('v', '<leader>y', function()
+  vscode.action('editor.action.clipboardCopyAction')
+  print('copied selection')
+end)
 
 set('n', '<leader>ld', function()
   vscode.action('editor.action.revealDefinition')
