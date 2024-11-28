@@ -9,4 +9,5 @@ else
   require('alex.commands')
   require('alex.misc')
   require('alex.lazy')
+  require('alex.hydras')
 end
