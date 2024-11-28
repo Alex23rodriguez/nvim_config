@@ -15,4 +15,5 @@ return {
       -- short_file_names = false,
     })
   end,
+  'mrjones2014/smart-splits.nvim',
 }
