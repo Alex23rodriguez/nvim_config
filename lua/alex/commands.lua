@@ -17,11 +17,16 @@
 vim.api.nvim_create_user_command('Format', function()
   vim.lsp.buf.format({ async = false })
   if vim.filetype.match({ buf = vim.api.nvim_get_current_buf() }) == 'python' then
-    vim.cmd('!ruff check --fix --select I %')
+    vim.cmd('!ruff check % --fix --select I')
   end
 end, { desc = 'format the document and sort imports' })
 
--- [[ Global lua Commands ]]
-function PPrint(arg)
+vim.api.nvim_create_user_command('Imports', function()
+  if vim.filetype.match({ buf = vim.api.nvim_get_current_buf() }) == 'python' then
+    vim.cmd('!ruff check % --select F401 --fix')
+  end
+end, { desc = 'format the document and sort imports' })
+
+function Print(arg)
   print(vim.inspect(arg))
 end
