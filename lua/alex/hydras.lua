@@ -82,82 +82,126 @@ else
 end
 
 -- DAP
-local success, dap = pcall(require, 'dap')
+local dap, dapui
+success, dap = pcall(require, 'dap')
+if success then
+  success, dapui = pcall(require, 'dapui')
+end
+if success then
+  success, virtual_text = pcall(require, 'nvim-dap-virtual-text')
+end
+if success then
+  success, persistent_breakpoints = pcall(require, 'persistent-breakpoints.api')
+end
 if success then
   Hydra({
     name = 'Debug Mode',
     mode = { 'n' },
     body = '<leader>d',
     hint = [[Runtime:
-_d_: Start/Continue         _p_: Pause                  _k_: Kill
-_L_: Run Last               _R_: Restart                _K_: Run Till Cursor
+_d_: Start/Continue         _P_: Pause                  _K_, _q_: Kill
+_L_: Run Last               _R_: Restart
 Movement:
 _i_: Step Over              _e_: Step Into              _u_: Step Out
-_n_: Step Back              _E_: Down                   _U_: Up
+_n_: Step Back              _E_: Stack Down             _U_: Stack Up
+_k_: Run Till Cursor
 Breakpoints:
 _b_: Toggle Breakpoint      _c_: Condition Breakpoint   _h_: Hit Breakpoint
-_l_: Log Point              _C_: Clear Breakpoints
+_p_: Log Point              _C_: Clear Breakpoints
+GUI:
+_g_: Toggle GUI             _l_: Toggle log layout      _y_: Toggle vars layout
+_v_: Toggle virtual text
 Misc:
-_r_: REPL                   _P_: Print Level]],
+_w_: Print Level            _<Esc>_: cancel]],
     config = {
       invoke_on_body = true,
-      color = 'pink',
+      color = 'teal', -- foreign keys warn and continue the state
+      -- foreign_keys = 'warn',
       hint = { type = 'window', border = 'rounded', position = 'middle-right' },
+      nowait = true,
     },
     heads = {
       -- :help dap-api
       -- runtime
-      { 'd', dap.continue, { desc = 'Start/Continue', nowait = true } },
-      { 'p', dap.pause, { desc = 'Pause', nowait = true } },
-      { 'k', dap.terminate, { desc = 'Kill', nowait = true } },
-      { 'L', dap.run_last, { desc = 'Run Last', nowait = true } },
-      { 'R', dap.restart, { desc = 'Restart', nowait = true } },
-      { 'K', dap.run_to_cursor, { desc = 'Run to Cursor, ignoring breakpoints', nowait = true } },
+      { 'd', dap.continue, { desc = 'Start/Continue' } },
+      { 'P', dap.pause, { desc = 'Pause' } },
+      { 'K', dap.terminate, { desc = 'Kill' } },
+      { 'q', dap.terminate, { desc = 'Kill' } },
+      { 'L', dap.run_last, { desc = 'Run Last' } },
+      { 'R', dap.restart, { desc = 'Restart' } },
+      { 'k', dap.run_to_cursor, { desc = 'Run to Cursor, ignoring breakpoints' } },
 
       -- movement
-      { 'i', dap.step_over, { desc = 'Step Over', nowait = true } },
-      { 'e', dap.step_into, { desc = 'Step Into', nowait = true } },
-      { 'u', dap.step_out, { desc = 'Step Out', nowait = true } },
-      { 'n', dap.step_back, { desc = 'Step Back', nowait = true } },
+      { 'i', dap.step_over, { desc = 'Step Over' } },
+      { 'e', dap.step_into, { desc = 'Step Into' } },
+      { 'u', dap.step_out, { desc = 'Step Out' } },
+      { 'n', dap.step_back, { desc = 'Step Back' } },
 
       -- stacktrace
-      { 'E', dap.down, { desc = 'Down', nowait = true } },
-      { 'U', dap.up, { desc = 'Up', nowait = true } },
+      { 'E', dap.down, { desc = 'Down' } },
+      { 'U', dap.up, { desc = 'Up' } },
 
       -- breakpoints
-      { 'b', dap.toggle_breakpoint, { desc = 'Toggle Breakpoint', nowait = true } },
+      -- { 'b', dap.toggle_breakpoint, { desc = 'Toggle Breakpoint' } },
+      { 'b', persistent_breakpoints.toggle_breakpoint, { desc = 'Toggle Breakpoint' } },
       {
         'c',
-        function()
-          dap.set_breakpoint(vim.fn.input('Breakpoint condition: '))
-        end,
-        { desc = 'Condition breakpoint', nowait = true },
+        persistent_breakpoints.set_conditional_breakpoint,
+        -- function()
+        -- dap.set_breakpoint(vim.fn.input('Breakpoint condition: '))
+        -- end,
+        { desc = 'Condition breakpoint' },
       },
       {
         'h',
         function()
           require('dap').set_breakpoint(nil, vim.fn.input('Hit times: '))
         end,
-        { desc = 'Hit breakpoint', nowait = true },
+        { desc = 'Hit breakpoint' },
+      },
+      {
+        'p',
+        persistent_breakpoints.set_log_point,
+        -- function()
+        -- dap.set_breakpoint(nil, nil, vim.fn.input('Log point message {var}: '))
+        -- end,
+        { desc = 'Log Point' },
+      },
+      -- { 'C', dap.clear_breakpoints, { desc = 'Clear Breakpoints' } },
+      { 'C', persistent_breakpoints.clear_all_breakpoints, { desc = 'Clear Breakpoints' } },
+
+      -- dapui
+      -- eval
+      --
+      {
+        'y',
+        function()
+          dapui.toggle({ layout = 1 })
+        end,
+        { desc = 'Toggle vars layout' },
       },
       {
         'l',
         function()
-          require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: '))
+          dapui.toggle({ layout = 2 })
         end,
-        { desc = 'Log Point', nowait = true },
+        { desc = 'Toggle logs layout' },
       },
-      { 'C', dap.clear_breakpoints, { desc = 'Clear Breakpoints', nowait = true } },
+
+      { 'g', dapui.toggle, { desc = 'toggle gui' } },
+
+      -- virtual text
+      { 'v', virtual_text.toggle, { desc = 'toggle gui' } },
 
       -- misc
-      { 'r', dap.repl.toggle, { desc = 'REPL', nowait = true } },
       {
-        'P',
+        'w',
         function()
           dap.set_log_level(vim.fn.input('Log Level (TRACE DEBUG INFO WARN ERROR): '))
         end,
-        { desc = 'Log Level', nowait = true },
+        { desc = 'Log Level' },
       },
+      { '<Esc>', nil, { exit = true } },
     },
   })
 end
