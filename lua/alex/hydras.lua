@@ -103,7 +103,7 @@ _d_: Start/Continue         _P_: Pause                  _K_, _q_: Kill
 _L_: Run Last               _R_: Restart
 Movement:
 _i_: Step Over              _e_: Step Into              _u_: Step Out
-_n_: Step Back              _E_: Stack Down             _U_: Stack Up
+_n_: Step Back              _E_: Frame Down             _U_: Frame Up
 _k_: Run Till Cursor
 Breakpoints:
 _b_: Toggle Breakpoint      _c_: Condition Breakpoint   _h_: Hit Breakpoint
@@ -117,7 +117,7 @@ _w_: Print Level            _<Esc>_: cancel]],
       invoke_on_body = true,
       color = 'teal', -- foreign keys warn and continue the state
       -- foreign_keys = 'warn',
-      hint = { type = 'window', border = 'rounded', position = 'middle-right' },
+      hint = { type = 'window', border = 'rounded', position = 'middle' },
       nowait = true,
     },
     heads = {
@@ -138,8 +138,8 @@ _w_: Print Level            _<Esc>_: cancel]],
       { 'n', dap.step_back, { desc = 'Step Back' } },
 
       -- stacktrace
-      { 'E', dap.down, { desc = 'Down' } },
-      { 'U', dap.up, { desc = 'Up' } },
+      { 'E', dap.up, { desc = 'Up' } },
+      { 'U', dap.down, { desc = 'Down' } },
 
       -- breakpoints
       -- { 'b', dap.toggle_breakpoint, { desc = 'Toggle Breakpoint' } },
