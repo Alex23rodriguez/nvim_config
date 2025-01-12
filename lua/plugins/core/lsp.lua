@@ -1,4 +1,14 @@
 return { -- LSP Configuration & Plugins
+  {
+    -- for config autocompletion
+    'folke/lazydev.nvim',
+    ft = 'lua', -- only load on lua files
+    opts = {
+      library = {
+        'nvim-dap-ui',
+      },
+    },
+  },
   'neovim/nvim-lspconfig',
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
