@@ -71,7 +71,8 @@ set('n', 'ss', '<cmd>b#<CR>', { desc = 'Switch to previous buffer' })
 set('n', 'sn', '<cmd>bp<CR>', { desc = 'Left buffer' })
 set('n', 'si', '<cmd>bn<CR>', { desc = 'Right buffer' })
 set('n', 'sw', '<cmd>bp|bd #<CR>', { desc = 'Close current buffer' })
-set('n', 'sW', '<cmd>%bd|e#<CR>', { desc = 'Close all but current buffer' })
+set('n', 'sW', '<cmd>bp|bd! #<CR>', { desc = 'Close current buffer without saving' })
+set('n', 'so', '<cmd>%bd|e#<CR>', { desc = 'Close all but current buffer' })
 
 -- [[ Quickfix ]]
 set('n', ']q', '<cmd>cnext<CR>', { desc = 'Next Quickfix item' })
