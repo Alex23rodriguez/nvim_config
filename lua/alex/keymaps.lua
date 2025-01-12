@@ -70,7 +70,7 @@ set('n', 'sI', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 set('n', 'ss', '<cmd>b#<CR>', { desc = 'Switch to previous buffer' })
 set('n', 'sn', '<cmd>bp<CR>', { desc = 'Left buffer' })
 set('n', 'si', '<cmd>bn<CR>', { desc = 'Right buffer' })
-set('n', 'sw', '<cmd>bd<CR>', { desc = 'Close all but current buffer' })
+set('n', 'sw', '<cmd>bp|bd #<CR>', { desc = 'Close current buffer' })
 set('n', 'sW', '<cmd>%bd|e#<CR>', { desc = 'Close all but current buffer' })
 
 -- [[ Quickfix ]]
