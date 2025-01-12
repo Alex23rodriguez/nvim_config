@@ -11,19 +11,40 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
       end,
       desc = 'Git blame line',
     },
-    {
-      '<leader>Gh',
-      function()
-        require('gitsigns').preview_hunk()
-      end,
-      desc = 'Git view hunk',
-    },
+    -- {
+    --   '<leader>Gh',
+    --   function()
+    --     require('gitsigns').preview_hunk()
+    --   end,
+    --   desc = 'Git view hunk',
+    -- },
     {
       '<leader>Gd',
       function()
         require('gitsigns').diffthis()
       end,
       desc = 'Git diff',
+    },
+    {
+      '<leader>Gh',
+      function()
+        require('telescope.builtin').git_bcommits()
+      end,
+      desc = 'Git buffer history',
+    },
+    {
+      '<leader>GB',
+      function()
+        require('telescope.builtin').git_branches()
+      end,
+      desc = 'Git branches',
+    },
+    {
+      '<leader>Gc',
+      function()
+        require('telescope.builtin').git_commits()
+      end,
+      desc = 'Git commits',
     },
   },
 
