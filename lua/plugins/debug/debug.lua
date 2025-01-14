@@ -24,10 +24,10 @@ return {
     config = function()
       local dap, dapui = require('dap'), require('dapui')
       dap.listeners.before.attach.dapui_config = function()
-        dapui.open({ layout = 1 })
+        dapui.open()
       end
       dap.listeners.before.launch.dapui_config = function()
-        dapui.open({ layout = 1 })
+        dapui.open()
       end
       dap.listeners.before.event_terminated.dapui_config = function()
         dapui.close()
