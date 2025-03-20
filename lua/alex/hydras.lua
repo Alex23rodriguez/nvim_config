@@ -30,6 +30,21 @@ if success then
       { 'I', splits.resize_right, { desc = 'Resize right', nowait = true } },
       { 'U', splits.resize_up, { desc = 'Resize up', nowait = true } },
       { 'E', splits.resize_down, { desc = 'Resize down', nowait = true } },
+
+      {
+        'L',
+        function()
+          splits.resize_left(25)
+        end,
+        { desc = 'Resize left +', nowait = true },
+      },
+      {
+        'Y',
+        function()
+          splits.resize_right(25)
+        end,
+        { desc = 'Resize right +', nowait = true },
+      },
       -- split
       { 'h', '<c-w>s', { desc = 'Split horizontally', nowait = true } },
       { 'v', '<c-w>v', { desc = 'Split vertically', nowait = true } },
