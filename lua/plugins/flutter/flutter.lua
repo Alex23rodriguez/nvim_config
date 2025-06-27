@@ -10,6 +10,7 @@ return {
     { '<leader>FF', '<cmd>FlutterRun<cr>' },
     { '<leader>FD', '<cmd>FlutterDebug<cr>' },
     { '<leader>FR', '<cmd>FlutterRestart<cr>' },
+    { '<leader>Fd', '<cmd>FlutterDevices<cr>' },
     { '<leader>Fr', '<cmd>FlutterReload>' },
     { '<leader>Fl', '<cmd>FlutterLogToggle<cr>' },
     { '<leader>Fk', '<cmd>FlutterQuit<cr>' },
