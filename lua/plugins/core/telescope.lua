@@ -62,6 +62,7 @@ return {
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'harpoon')
     pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension, 'flutter')
     local success, _ = pcall(require('telescope').load_extension, 'yank_history')
     if success then
       vim.keymap.set('n', '<leader>ty', function()

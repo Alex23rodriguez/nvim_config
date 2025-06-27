@@ -23,6 +23,7 @@ require('lazy').setup({
   { import = 'plugins/debug' },
   { import = 'plugins/test' },
   { import = 'plugins/python' },
+  { import = 'plugins/flutter' },
   { import = 'plugins/csv' },
   { import = 'plugins/ts' },
 }, {
