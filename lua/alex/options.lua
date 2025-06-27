@@ -86,3 +86,6 @@ vim.opt.pumheight = 10
 
 -- command line height
 -- vim.opt.cmdheight = 2
+
+-- wildcard mode up to common prefix
+vim.opt.wildmode = 'longest:full,full'
