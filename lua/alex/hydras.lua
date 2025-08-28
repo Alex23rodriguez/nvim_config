@@ -9,7 +9,7 @@ if success then
     config = {
       invoke_on_body = true,
       color = 'amaranth',
-      hint = { type = 'window', border = 'rounded' },
+      hint = { type = 'window' },
     },
     heads = {
       -- move between windows
@@ -132,7 +132,7 @@ _w_: Print Level            _<Esc>_: cancel]],
       invoke_on_body = true,
       color = 'teal', -- foreign keys warn and continue the state
       -- foreign_keys = 'warn',
-      hint = { type = 'window', border = 'rounded', position = 'middle' },
+      hint = { type = 'window', position = 'middle' },
       nowait = true,
     },
     heads = {

@@ -47,6 +47,7 @@ return {
   },
   {
     'Alex23rodriguez/NotebookNavigator.nvim',
+    -- dir = '~/Documents/Misc/nvim_plugins/NotebookNavigator.nvim/',
     keys = {
       -- { "]h", function() require("notebook-navigator").move_cell "d" end },
       -- { "[h", function() require("notebook-navigator").move_cell "u" end },
@@ -55,7 +56,7 @@ return {
     },
     dependencies = {
       'hkupty/iron.nvim', -- repl provider
-      'anuvyklack/hydra.nvim',
+      'nvimtools/hydra.nvim',
     },
     event = 'VeryLazy',
     opts = {
@@ -79,7 +80,7 @@ return {
   {
     'echasnovski/mini.hipatterns',
     event = 'VeryLazy',
-    dependencies = { 'GCBallesteros/NotebookNavigator.nvim' },
+    dependencies = { 'Alex23rodriguez/NotebookNavigator.nvim' },
     opts = function()
       local nn = require('notebook-navigator')
 
@@ -90,7 +91,7 @@ return {
   {
     'echasnovski/mini.ai',
     event = 'VeryLazy',
-    dependencies = { 'GCBallesteros/NotebookNavigator.nvim' },
+    dependencies = { 'Alex23rodriguez/NotebookNavigator.nvim' },
     opts = function()
       local nn = require('notebook-navigator')
 
