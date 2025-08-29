@@ -89,3 +89,6 @@ vim.opt.pumheight = 10
 
 -- wildcard mode up to common prefix
 vim.opt.wildmode = 'longest:full,full'
+
+-- nvim 11 rounded
+vim.o.winborder = 'rounded'
