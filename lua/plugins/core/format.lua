@@ -30,6 +30,7 @@ return { -- Autoformat
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        toml = { 'tombi' },
         -- Conform can also run multiple formatters sequentially
         python = { 'black', 'isort' },
         -- You can tell conform to run *until* a formatter is found.
