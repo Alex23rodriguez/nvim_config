@@ -123,13 +123,13 @@ set('t', '<C-Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- copy contents to tmp file
--- set('n', '<leader>y', function()
---   local file = io.open('/tmp/nvim.txt', 'w')
---   if file then
---     file:write(vim.fn.getreg('"'))
---     file:close()
---     print('copied register to /tmp/nvim.txt')
---   else
---     print('could not open file')
---   end
--- end)
+set('n', '<leader>y', function()
+  local file = io.open('/tmp/nvim.txt', 'w')
+  if file then
+    file:write(vim.fn.getreg('"'))
+    file:close()
+    print('copied register to /tmp/nvim.txt')
+  else
+    print('could not open file')
+  end
+end)
