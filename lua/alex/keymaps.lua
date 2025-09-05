@@ -29,7 +29,9 @@ set('n', 'S', 'z', { desc = 'Vim z prefix' })
 -- go up end down jump list
 set('n', 'L', '<c-o>', { desc = 'Jump to previous edit position' })
 set('n', 'Y', '<c-i>', { desc = 'Jump to next edit position' })
---
+
+-- g enter to open paren
+set('n', 'g<CR>', 'i<CR><C-o>O', { desc = 'Open paren with g enter' })
 -- go up end down change jump list
 -- set('n', 'L', 'g;', { desc = 'Jump to previous edit position' })
 -- set('n', 'Y', 'g,', { desc = 'Jump to next edit position' })
