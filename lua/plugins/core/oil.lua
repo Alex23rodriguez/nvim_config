@@ -30,7 +30,15 @@ return {
       ['P'] = 'actions.preview',
       ['X'] = 'actions.open_cmdline',
       ['T'] = 'actions.open_terminal',
-      ['Y'] = 'actions.preview_scroll_down',
+      -- ['Y'] = 'actions.preview_scroll_down',
+      ['Y'] = {
+        function()
+          local pwd = require('oil').get_current_dir()
+          vim.fn.setreg('"', pwd)
+          print('Yanked ' .. pwd)
+        end,
+        desc = 'Yank pwd',
+      },
       ['L'] = 'actions.preview_scroll_up',
       ['g?'] = 'actions.show_help',
       ['~'] = { 'actions.cd', opts = { scope = 'win' }, mode = 'n' },
