@@ -33,6 +33,7 @@ return {
       ['Y'] = 'actions.preview_scroll_down',
       ['L'] = 'actions.preview_scroll_up',
       ['g?'] = 'actions.show_help',
+      ['~'] = { 'actions.cd', opts = { scope = 'win' }, mode = 'n' },
       ['gv'] = {
         function()
           require('oil').set_columns({
