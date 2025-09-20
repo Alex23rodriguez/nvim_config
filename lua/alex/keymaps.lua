@@ -135,3 +135,11 @@ set('t', '<C-Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 --     print('could not open file')
 --   end
 -- end)
+
+-- yank contents to osc52 clipboard (to copy across ssh)
+set('n', '<leader>y', function()
+  local text = vim.fn.getreg('"')
+  local osc52 = require('vim.ui.clipboard.osc52')
+  osc52.copy('+')({ text })
+  print('yanked to OSC52 clipboard')
+end, { desc = 'Copy to OSC52 clipboard' })
