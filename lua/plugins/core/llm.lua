@@ -3,7 +3,7 @@ return {
     -- adds inline suggestions to neovim
     -- check out augmentcode.com
     'augmentcode/augment.vim',
-    lazy = false,
+    lazy = true,
     init = function()
       vim.api.nvim_set_var('augment_disable_tab_mapping', true)
     end,
