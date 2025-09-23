@@ -26,13 +26,6 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
       desc = 'Git diff',
     },
     {
-      '<leader>Gh',
-      function()
-        require('telescope.builtin').git_bcommits()
-      end,
-      desc = 'Git buffer history',
-    },
-    {
       '<leader>GB',
       function()
         require('telescope.builtin').git_branches()
@@ -45,6 +38,34 @@ return { -- Adds git related signs to the gutter, as well as utilities for manag
         require('telescope.builtin').git_commits()
       end,
       desc = 'Git commits',
+    },
+    -- {
+    --   '<leader>Gh',
+    --   function()
+    --     require('telescope.builtin').git_bcommits()
+    --   end,
+    --   desc = 'Git buffer history',
+    -- },
+    {
+      '<leader>Gh',
+      function()
+        require('telescope.builtin').git_bcommits({
+          previewer = require('telescope.previewers').new_termopen_previewer({
+            dyn_title = function(_, entry)
+              return entry.value
+            end, -- use hash as title
+            get_command = function(entry, status)
+              local hash = entry.value
+              local cmd = {
+                'git show ' .. hash,
+                '--color=always',
+              }
+              return table.concat(cmd, ' ')
+            end,
+          }),
+        })
+      end,
+      desc = 'Git buffer history',
     },
   },
 
