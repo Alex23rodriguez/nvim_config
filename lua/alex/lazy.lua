@@ -24,6 +24,7 @@ require('lazy').setup({
   { import = 'plugins/test' },
   { import = 'plugins/python' },
   { import = 'plugins/flutter' },
+  { import = 'plugins/md' },
   { import = 'plugins/csv' },
   { import = 'plugins/ts' },
 }, {
