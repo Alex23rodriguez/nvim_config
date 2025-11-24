@@ -49,4 +49,18 @@ return {
       { '<leader>0', "<cmd>lua require('harpoon.term').gotoTerminal(4)<CR>" },
     },
   },
+
+  {
+    'stevearc/aerial.nvim',
+    keys = {
+      { '<leader>a', '<cmd>AerialToggle!<CR>' },
+    },
+    opts = {
+      on_attach = function(bufnr)
+        -- Jump forwards/backwards with '{' and '}'
+        vim.keymap.set('n', '{', '<cmd>AerialPrev<CR>', { buffer = bufnr })
+        vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', { buffer = bufnr })
+      end,
+    },
+  },
 }
