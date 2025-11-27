@@ -58,10 +58,10 @@ return {
       ncdu:toggle()
     end
 
-    local htop = Terminal:new({ cmd = 'htop', hidden = true })
-    _HTOP_TOGGLE = function()
-      curr_term_fn = _HTOP_TOGGLE
-      htop:toggle()
+    local bottom = Terminal:new({ cmd = 'btm', hidden = true })
+    _BTM_TOGGLE = function()
+      curr_term_fn = _BTM_TOGGLE
+      bottom:toggle()
     end
 
     local python = Terminal:new({ cmd = 'python', hidden = true })
@@ -76,7 +76,8 @@ return {
     { '<leader>xg', '<cmd>lua _LAZYGIT_TOGGLE()<cr>' },
     { '<leader>xn', '<cmd>lua _NODE_TOGGLE()<cr>' },
     { '<leader>xs', '<cmd>lua _NCDU_TOGGLE()<cr>' },
-    { '<leader>xh', '<cmd>lua _HTOP_TOGGLE()<cr>' },
+    { '<leader>xh', '<cmd>lua _BTM_TOGGLE()<cr>' },
+    { '<leader>xb', '<cmd>lua _BTM_TOGGLE()<cr>' },
     { '<leader>xp', '<cmd>lua _PYTHON_TOGGLE()<cr>' },
     { '<C-q>', '<cmd>lua _TOGGLE_CURRENT()<cr>', desc = 'Toggle terminal' },
     { '<C-q>', '<cmd>lua _TOGGLE_CURRENT()<cr>', mode = 't' },
