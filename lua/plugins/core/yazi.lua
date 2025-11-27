@@ -11,12 +11,6 @@ return {
       '<cmd>Yazi<cr>',
       desc = 'Open yazi at the current file',
     },
-    {
-      -- Open in the current working directory
-      '-',
-      '<cmd>Yazi cwd<cr>',
-      desc = "Open the file manager in nvim's working directory",
-    },
     -- {
     --   "<c-up>",
     --   "<cmd>Yazi toggle<cr>",
@@ -27,7 +21,7 @@ return {
     open_for_directories = true,
     keymaps = {
       show_help = '?',
-      change_working_directory = '_',
+      -- change_working_directory = '_',
     },
   },
   init = function()
