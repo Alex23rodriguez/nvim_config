@@ -21,7 +21,7 @@ return {
     keys = {
       -- { "]h", function() require("notebook-navigator").move_cell "d" end },
       -- { "[h", function() require("notebook-navigator").move_cell "u" end },
-      { "<leader>c", "<cmd>lua require('notebook-navigator').run_cell()<cr>" },
+      -- { "<leader>c", "<cmd>lua require('notebook-navigator').run_cell()<cr>" },
       { "<leader>C", "<cmd>lua require('notebook-navigator').run_and_move()<cr>" },
     },
     dependencies = {
@@ -30,20 +30,20 @@ return {
     },
     event = "VeryLazy",
     opts = {
-      activate_hydra_keys = "<leader>n", -- hydra head
+      activate_hydra_keys = "<leader>N", -- hydra head
       show_hydra_hint = false,
       hydra_keys = {
         comment = "/",
         run = "c",
         run_and_move = "C",
-        move_up = "u",
-        move_down = "e",
+        move_up = "k",
+        move_down = "j",
         add_cell_before = "O",
         add_cell_after = "o",
         merge_up = "M",
         merge_down = "m",
-        swap_up = "U",
-        swap_down = "E",
+        swap_up = "K",
+        swap_down = "J",
       },
     },
   },
