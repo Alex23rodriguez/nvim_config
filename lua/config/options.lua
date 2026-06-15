@@ -4,3 +4,6 @@
 vim.opt.inccommand = "split" -- when substituting, preview changes
 vim.opt.backup = false
 vim.opt.swapfile = false
+
+-- use arrow keys in sql file
+vim.g.omni_sql_no_default_maps = true
