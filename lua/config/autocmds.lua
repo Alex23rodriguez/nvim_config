@@ -6,3 +6,8 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- don't continue comment leader on o/O
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  command = "set formatoptions-=o",
+})
