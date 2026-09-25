@@ -11,6 +11,9 @@ return {
         config = {
           scratch_repl = true,
           repl_open_cmd = "vertical botright 80 split",
+          python = {
+            block_dividers = { "# %%", "#%%", "# COMMAND ----------" },
+          },
         },
       })
     end,
@@ -44,6 +47,9 @@ return {
         merge_down = "m",
         swap_up = "K",
         swap_down = "J",
+      },
+      cell_markers = {
+        python = { "# %%", "#%%", "# COMMAND ----------" },
       },
     },
   },
