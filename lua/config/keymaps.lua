@@ -2,3 +2,13 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 vim.keymap.set("t", "<C-\\>", "<C-\\><C-n>")
+
+-- jump to declaration in a vertical split
+vim.keymap.set("n", "<leader>cv", function()
+  vim.cmd("vsplit")
+  vim.cmd("normal! gD")
+end, { desc = "Declaration in vertical split" })
+
+vim.keymap.set("n", "gt", function()
+  vim.lsp.buf.type_definition()
+end, { desc = "Go to type definition" })
