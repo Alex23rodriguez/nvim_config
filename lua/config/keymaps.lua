@@ -12,3 +12,5 @@ end, { desc = "Declaration in vertical split" })
 vim.keymap.set("n", "gt", function()
   vim.lsp.buf.type_definition()
 end, { desc = "Go to type definition" })
+
+vim.keymap.set("i", "<c-A>", "<End>", { desc = "Go go to end of line" })
