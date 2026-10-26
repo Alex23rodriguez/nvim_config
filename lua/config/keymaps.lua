@@ -14,3 +14,7 @@ vim.keymap.set("n", "gt", function()
 end, { desc = "Go to type definition" })
 
 vim.keymap.set("i", "<c-A>", "<End>", { desc = "Go go to end of line" })
+
+vim.keymap.set("n", "<leader>gB", function()
+  require("util.git_file_branch").pick()
+end, { desc = "Open Current File from Branch" })
